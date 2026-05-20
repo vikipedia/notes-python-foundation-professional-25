@@ -1,0 +1,1940 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.26">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Module III - Day I – Python Foundation</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2" crossorigin="anonymous"></script><script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-6619930f94c3c20c9409a6d6d004c9ae.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="https://cdn.jsdelivr.net/npm/requirejs@2.3.6/require.min.js" integrity="sha384-c9c+LnTbwQ3aujuU7ULEPVvgLs+Fn6fJUvIGTsuu1ZcCf11fiEubah0ttpca4ntM sha384-6V1/AdqZRWk1KAlWbKBlGhN7VG4iE/yAZcO6NZPMF8od0vukrvr0tg4qY6NSrItx" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-sidebar docked nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">Python Foundation</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./trainer.html"> 
+<span class="menu-text">Trainer</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./topics.html"> 
+<span class="menu-text">Topics</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./notes.html"> 
+<span class="menu-text">Training Notes</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./module3-day1.html">Module III</a></li><li class="breadcrumb-item"><a href="./module3-day1.html">Module III - Day I</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Module I</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./module1-day1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Module I - Day 1</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./module1-day2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Module I - Day 2</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./module1-day3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Module I - Day 3</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./module1-day4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Module I - Day 4</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Module II</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./module2-day1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Module II - Day 1</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./module2-day2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Module II - Day 2</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./module2-day3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Module II - Day 3</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./module2-day4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Module II - Day 4</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Module III</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./module3-day1.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Module III - Day I</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./module3-day2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Module III - Day 2</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./module3-day3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Module III - Day 3</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#python-foundation" id="toc-python-foundation" class="nav-link active" data-scroll-target="#python-foundation">Python Foundation</a></li>
+  <li><a href="#classes---recap" id="toc-classes---recap" class="nav-link" data-scroll-target="#classes---recap">Classes - Recap</a></li>
+  <li><a href="#downloading-from-internet" id="toc-downloading-from-internet" class="nav-link" data-scroll-target="#downloading-from-internet">Downloading from internet</a></li>
+  <li><a href="#understanding-http-protocol" id="toc-understanding-http-protocol" class="nav-link" data-scroll-target="#understanding-http-protocol">Understanding HTTP protocol</a></li>
+  <li><a href="#api-call" id="toc-api-call" class="nav-link" data-scroll-target="#api-call">API call</a></li>
+  <li><a href="#authentication" id="toc-authentication" class="nav-link" data-scroll-target="#authentication">Authentication</a></li>
+  <li><a href="#homework" id="toc-homework" class="nav-link" data-scroll-target="#homework">homework</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./module3-day1.html">Module III</a></li><li class="breadcrumb-item"><a href="./module3-day1.html">Module III - Day I</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Module III - Day I</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="python-foundation" class="level3">
+<h3 class="anchored" data-anchor-id="python-foundation">Python Foundation</h3>
+<p>Nov-Jan 2025 batch, Vikrant Patil</p>
+<p>Date: 10 Feb 2026</p>
+<p><a href="https://vikrant.dev/python-foundation-professionals/notes.html">Click here</a> for All Notes</p>
+<p>login to https://traininghub.vikrant.dev/ with your username and create a notebook with name <code>module1-day1.ipynb</code></p>
+<p>© Vikrant Patil</p>
+</section>
+<section id="classes---recap" class="level3">
+<h3 class="anchored" data-anchor-id="classes---recap">Classes - Recap</h3>
+<div id="df94ffff-9376-4efc-9263-f11c6624577c" class="cell" data-execution_count="5">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Point:</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, x, y): <span class="co"># contructor of the class</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.x <span class="op">=</span> x</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.y <span class="op">=</span> y</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> get_x(<span class="va">self</span>):</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">self</span>.x</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> get_y(<span class="va">self</span>):</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">self</span>.x</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>        </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<pre><code>+---------+
+|         |------&gt; get_x
+|  x =    |
+|  y =    |------&gt; get_y
++---------+</code></pre>
+<div id="92129237-a850-4f2a-bc8d-f4bb050072b4" class="cell" data-execution_count="2">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>nums <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="9d78096f-c629-419f-8dde-7d0066adaf68" class="cell" data-execution_count="3">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>nums.index(<span class="dv">5</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="3">
+<pre><code>4</code></pre>
+</div>
+</div>
+<div id="b85daa33-ff6e-430f-9e04-97afe111d3d5" class="cell" data-execution_count="4">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(nums)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="4">
+<pre><code>list</code></pre>
+</div>
+</div>
+<div id="e93cb080-ac88-4868-9f90-40da71455cc2" class="cell" data-execution_count="6">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>Point</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="6">
+<pre><code>__main__.Point</code></pre>
+</div>
+</div>
+<div id="6a34e0d9-067c-47f3-88e2-1b2f244459b5" class="cell" data-execution_count="9">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>p <span class="op">=</span> Point(<span class="dv">10</span>, <span class="dv">20</span>) <span class="co"># pass the argument that are defined in the constructor</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="37aade84-3cb9-4425-bc74-6c76b8e26b73" class="cell" data-execution_count="10">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(p)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="10">
+<pre><code>__main__.Point</code></pre>
+</div>
+</div>
+<div id="c9eebb16-f916-4c39-88be-8bdeb960c3bd" class="cell" data-execution_count="11">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>nums</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="11">
+<pre><code>[1, 2, 3, 4, 5]</code></pre>
+</div>
+</div>
+<div id="6faba1b1-2558-4014-a5d7-2f9e6c3f36ef" class="cell" data-execution_count="12">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>p</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="12">
+<pre><code>&lt;__main__.Point at 0x7f4ea445ae90&gt;</code></pre>
+</div>
+</div>
+<div id="6bda26cb-ca80-4fb8-aaf8-01a0bbd320af" class="cell" data-execution_count="40">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Point:</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, x, y): <span class="co"># contructor of the class</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.x <span class="op">=</span> x</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.y <span class="op">=</span> y</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> get_x(<span class="va">self</span>):</span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">self</span>.x</span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> get_y(<span class="va">self</span>):</span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">self</span>.x</span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__repr__</span>(<span class="va">self</span>):</span>
+<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a>        <span class="co">"""magic method that will show reprensentation of the object inside interpreter</span></span>
+<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a><span class="co">        """</span></span>
+<span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="ss">f"Pair(</span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>x<span class="sc">}</span><span class="ss">, </span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>y<span class="sc">}</span><span class="ss">)"</span> <span class="co"># string formatting</span></span>
+<span id="cb17-17"><a href="#cb17-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-18"><a href="#cb17-18" aria-hidden="true" tabindex="-1"></a>   </span>
+<span id="cb17-19"><a href="#cb17-19" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__rmul__</span>(<span class="va">self</span>, scale):</span>
+<span id="cb17-20"><a href="#cb17-20" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> Point(scale<span class="op">*</span><span class="va">self</span>.x, scale<span class="op">*</span><span class="va">self</span>.y)</span>
+<span id="cb17-21"><a href="#cb17-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-22"><a href="#cb17-22" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__add__</span>(<span class="va">self</span>, p):</span>
+<span id="cb17-23"><a href="#cb17-23" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> Point(<span class="va">self</span>.x <span class="op">+</span> p.x, </span>
+<span id="cb17-24"><a href="#cb17-24" aria-hidden="true" tabindex="-1"></a>                     <span class="va">self</span>.y <span class="op">+</span> p.y)</span>
+<span id="cb17-25"><a href="#cb17-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-26"><a href="#cb17-26" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__getitem__</span>(<span class="va">self</span>, name):</span>
+<span id="cb17-27"><a href="#cb17-27" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> name <span class="op">==</span> <span class="st">"x"</span>:</span>
+<span id="cb17-28"><a href="#cb17-28" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> <span class="va">self</span>.x</span>
+<span id="cb17-29"><a href="#cb17-29" aria-hidden="true" tabindex="-1"></a>        <span class="cf">elif</span> name <span class="op">==</span> <span class="st">"y"</span>:</span>
+<span id="cb17-30"><a href="#cb17-30" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> <span class="va">self</span>.y</span>
+<span id="cb17-31"><a href="#cb17-31" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span>:</span>
+<span id="cb17-32"><a href="#cb17-32" aria-hidden="true" tabindex="-1"></a>            <span class="cf">raise</span> <span class="pp">NameError</span>(<span class="ss">f"Unknown attribute </span><span class="sc">{</span>name<span class="sc">}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="acc87bad-f1ab-43a6-a86d-878568896974" class="cell" data-execution_count="41">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>p1 <span class="op">=</span> Point(<span class="dv">0</span>, <span class="dv">0</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="416eef5f-19d4-4071-b1b2-f15e8dd67e3d" class="cell" data-execution_count="42">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>p1</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="42">
+<pre><code>Pair(0, 0)</code></pre>
+</div>
+</div>
+<div id="835030ea-c759-40dc-8308-50317a8ec3ce" class="cell" data-execution_count="43">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>p2 <span class="op">=</span> Point(<span class="dv">1</span>, <span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="2e2ae618-60a9-43a2-96e3-486163c434e6" class="cell" data-execution_count="44">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>p2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="44">
+<pre><code>Pair(1, 2)</code></pre>
+</div>
+</div>
+<div id="f2595e08-bc88-4346-8e0e-02e0700ab0e9" class="cell" data-execution_count="45">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="dv">3</span><span class="op">*</span>p2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="45">
+<pre><code>Pair(3, 6)</code></pre>
+</div>
+</div>
+<div id="8abbe5cc-6e87-4577-83b1-4bce982409cf" class="cell" data-execution_count="46">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co">"hello"</span><span class="op">*</span><span class="dv">3</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="46">
+<pre><code>'hellohellohello'</code></pre>
+</div>
+</div>
+<div id="aeca2f22-20d2-46f8-a8e5-7e5af3ccbf21" class="cell" data-execution_count="47">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="dv">3</span><span class="op">*</span><span class="st">"hello"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="47">
+<pre><code>'hellohellohello'</code></pre>
+</div>
+</div>
+<div id="32609f77-0bef-4e00-af3a-cd61d4e588fe" class="cell" data-execution_count="48">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>p1 <span class="op">+</span> p2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="48">
+<pre><code>Pair(1, 2)</code></pre>
+</div>
+</div>
+<div id="ed8b5712-becf-4b06-a2f4-f7430950ee81" class="cell" data-execution_count="49">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>p3 <span class="op">=</span> Point(<span class="dv">10</span>, <span class="dv">20</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="87dfcf62-4b1f-4a0b-a650-79229f96c80e" class="cell" data-execution_count="50">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>p2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="50">
+<pre><code>Pair(1, 2)</code></pre>
+</div>
+</div>
+<div id="4d132f03-8340-44a5-bfd2-966a0aa8468d" class="cell" data-execution_count="51">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>p3</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="51">
+<pre><code>Pair(10, 20)</code></pre>
+</div>
+</div>
+<div id="04a97be8-ed0a-494b-88a5-baba4f86bf12" class="cell" data-execution_count="52">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>p2 <span class="op">+</span> p3</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="52">
+<pre><code>Pair(11, 22)</code></pre>
+</div>
+</div>
+<div id="022d512f-c96a-4c6e-a562-c88983306a05" class="cell" data-execution_count="53">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>p <span class="op">=</span> p2 <span class="op">+</span> p3</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="aba012e7-6f1b-467d-91d5-e9368a505863" class="cell" data-execution_count="55">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>p[<span class="st">'x'</span>] <span class="co"># like dictionary we can access data</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="55">
+<pre><code>11</code></pre>
+</div>
+</div>
+<div id="6db80d25-a744-4109-a93f-2456940d187a" class="cell" data-execution_count="56">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>p1</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="56">
+<pre><code>Pair(0, 0)</code></pre>
+</div>
+</div>
+<div id="a0610471-7275-448e-83ee-086a556765fb" class="cell" data-execution_count="57">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(p1)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Pair(0, 0)</code></pre>
+</div>
+</div>
+<div id="7eb024ad-8b3e-415b-8f9f-d12401f569d4" class="cell" data-execution_count="78">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb46"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Point:</span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, x, y): <span class="co"># contructor of the class</span></span>
+<span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.x <span class="op">=</span> x</span>
+<span id="cb46-5"><a href="#cb46-5" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.y <span class="op">=</span> y</span>
+<span id="cb46-6"><a href="#cb46-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-7"><a href="#cb46-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> get_x(<span class="va">self</span>):</span>
+<span id="cb46-8"><a href="#cb46-8" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">self</span>.x</span>
+<span id="cb46-9"><a href="#cb46-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-10"><a href="#cb46-10" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> get_y(<span class="va">self</span>):</span>
+<span id="cb46-11"><a href="#cb46-11" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">self</span>.x</span>
+<span id="cb46-12"><a href="#cb46-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-13"><a href="#cb46-13" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__repr__</span>(<span class="va">self</span>):</span>
+<span id="cb46-14"><a href="#cb46-14" aria-hidden="true" tabindex="-1"></a>        <span class="co">"""magic method that will show reprensentation of the object inside interpreter</span></span>
+<span id="cb46-15"><a href="#cb46-15" aria-hidden="true" tabindex="-1"></a><span class="co">        """</span></span>
+<span id="cb46-16"><a href="#cb46-16" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="ss">f"Pair(</span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>x<span class="sc">}</span><span class="ss">, </span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>y<span class="sc">}</span><span class="ss">)"</span> <span class="co"># string formatting</span></span>
+<span id="cb46-17"><a href="#cb46-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-18"><a href="#cb46-18" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__rmul__</span>(<span class="va">self</span>, scale):</span>
+<span id="cb46-19"><a href="#cb46-19" aria-hidden="true" tabindex="-1"></a>        <span class="co">""" overloas the right side multiplication</span></span>
+<span id="cb46-20"><a href="#cb46-20" aria-hidden="true" tabindex="-1"></a><span class="co">        3*point</span></span>
+<span id="cb46-21"><a href="#cb46-21" aria-hidden="true" tabindex="-1"></a><span class="co">        """</span></span>
+<span id="cb46-22"><a href="#cb46-22" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> Point(scale<span class="op">*</span><span class="va">self</span>.x, scale<span class="op">*</span><span class="va">self</span>.y)</span>
+<span id="cb46-23"><a href="#cb46-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-24"><a href="#cb46-24" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> __lmul__(<span class="va">self</span>, scale):</span>
+<span id="cb46-25"><a href="#cb46-25" aria-hidden="true" tabindex="-1"></a>        <span class="co">""" overloas the left side multiplication</span></span>
+<span id="cb46-26"><a href="#cb46-26" aria-hidden="true" tabindex="-1"></a><span class="co">        point*3</span></span>
+<span id="cb46-27"><a href="#cb46-27" aria-hidden="true" tabindex="-1"></a><span class="co">        """</span></span>
+<span id="cb46-28"><a href="#cb46-28" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> Point(scale<span class="op">*</span><span class="va">self</span>.x, scale<span class="op">*</span><span class="va">self</span>.y)</span>
+<span id="cb46-29"><a href="#cb46-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-30"><a href="#cb46-30" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb46-31"><a href="#cb46-31" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__add__</span>(<span class="va">self</span>, p):</span>
+<span id="cb46-32"><a href="#cb46-32" aria-hidden="true" tabindex="-1"></a>        <span class="co">"""overrides + operator allowing us to add two points</span></span>
+<span id="cb46-33"><a href="#cb46-33" aria-hidden="true" tabindex="-1"></a><span class="co">        """</span></span>
+<span id="cb46-34"><a href="#cb46-34" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> Point(<span class="va">self</span>.x <span class="op">+</span> p.x, </span>
+<span id="cb46-35"><a href="#cb46-35" aria-hidden="true" tabindex="-1"></a>                     <span class="va">self</span>.y <span class="op">+</span> p.y)</span>
+<span id="cb46-36"><a href="#cb46-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-37"><a href="#cb46-37" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__getitem__</span>(<span class="va">self</span>, name):</span>
+<span id="cb46-38"><a href="#cb46-38" aria-hidden="true" tabindex="-1"></a>        <span class="co">"""creates a dictionary like access</span></span>
+<span id="cb46-39"><a href="#cb46-39" aria-hidden="true" tabindex="-1"></a><span class="co">        p['x'] -&gt; will call this method</span></span>
+<span id="cb46-40"><a href="#cb46-40" aria-hidden="true" tabindex="-1"></a><span class="co">        """</span></span>
+<span id="cb46-41"><a href="#cb46-41" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> name <span class="op">==</span> <span class="st">"x"</span>:</span>
+<span id="cb46-42"><a href="#cb46-42" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> <span class="va">self</span>.x</span>
+<span id="cb46-43"><a href="#cb46-43" aria-hidden="true" tabindex="-1"></a>        <span class="cf">elif</span> name <span class="op">==</span> <span class="st">"y"</span>:</span>
+<span id="cb46-44"><a href="#cb46-44" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> <span class="va">self</span>.y</span>
+<span id="cb46-45"><a href="#cb46-45" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span>:</span>
+<span id="cb46-46"><a href="#cb46-46" aria-hidden="true" tabindex="-1"></a>            <span class="cf">raise</span> <span class="pp">NameError</span>(<span class="ss">f"Unknown attribute </span><span class="sc">{</span>name<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb46-47"><a href="#cb46-47" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb46-48"><a href="#cb46-48" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__str__</span>(<span class="va">self</span>):</span>
+<span id="cb46-49"><a href="#cb46-49" aria-hidden="true" tabindex="-1"></a>        <span class="co">"""will be called when object is printed or converted to str</span></span>
+<span id="cb46-50"><a href="#cb46-50" aria-hidden="true" tabindex="-1"></a><span class="co">        """</span></span>
+<span id="cb46-51"><a href="#cb46-51" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="ss">f"(</span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>x<span class="sc">}</span><span class="ss">,</span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>x<span class="sc">}</span><span class="ss">)"</span></span>
+<span id="cb46-52"><a href="#cb46-52" aria-hidden="true" tabindex="-1"></a>    </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="eeba09df-63d1-49ea-9c85-7eb33f661baa" class="cell" data-execution_count="59">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb47"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>p <span class="op">=</span> Point(<span class="dv">45</span>, <span class="dv">42</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="bab9e2a1-defd-4b0c-a807-c3ce32c4ffb3" class="cell" data-execution_count="60">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb48"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>p</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="60">
+<pre><code>Pair(45, 42)</code></pre>
+</div>
+</div>
+<div id="e1cac6f8-e437-4ca7-bfbc-a443fcc2220e" class="cell" data-execution_count="61">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb50"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(p)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>(45,45)</code></pre>
+</div>
+</div>
+<div id="2169ce53-a567-4e37-be3e-d16087fccbf0" class="cell" data-execution_count="63">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb52"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="ss">f"My robot will start at location </span><span class="sc">{</span>p<span class="sc">}</span><span class="ss">"</span> <span class="co"># here __str__ will be called</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="63">
+<pre><code>'My robot will start at location (45,45)'</code></pre>
+</div>
+</div>
+<div id="5e54b3f3-ea6e-4526-9084-a4f314a52e66" class="cell" data-execution_count="64">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb54"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="bu">str</span>(p)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="64">
+<pre><code>'(45,45)'</code></pre>
+</div>
+</div>
+<div id="7310b197-304e-46e3-bdaa-3696bd4d63b8" class="cell" data-execution_count="65">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb56"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(p.x)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>45</code></pre>
+</div>
+</div>
+<p>Convetions for public/private - normal attribute name is public - attribute which is private we start it with _</p>
+<div id="6a67747c-819f-49cd-bc51-3122e103504c" class="cell" data-execution_count="68">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb58"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Pair:</span>
+<span id="cb58-2"><a href="#cb58-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-3"><a href="#cb58-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, x, y):</span>
+<span id="cb58-4"><a href="#cb58-4" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>._x <span class="op">=</span> x</span>
+<span id="cb58-5"><a href="#cb58-5" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>._y <span class="op">=</span> y </span>
+<span id="cb58-6"><a href="#cb58-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-7"><a href="#cb58-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> get_x(<span class="va">self</span>): <span class="co"># public attribute</span></span>
+<span id="cb58-8"><a href="#cb58-8" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">self</span>._x</span>
+<span id="cb58-9"><a href="#cb58-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-10"><a href="#cb58-10" aria-hidden="true" tabindex="-1"></a>    </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="20f0bb8f-8d2a-4ded-a48c-ebb9f29b0d62" class="cell" data-execution_count="69">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb59"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a>p <span class="op">=</span> Pair(<span class="dv">45</span>, <span class="dv">34</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="3be0f9ad-95fc-4047-8323-153ca5c81aec" class="cell" data-execution_count="70">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb60"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a>p.get_x()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="70">
+<pre><code>45</code></pre>
+</div>
+</div>
+<div id="b52bd8b7-a99b-460f-b3b1-21200695db05" class="cell" data-execution_count="72">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb62"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a>Pair</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="72">
+<pre><code>__main__.Pair</code></pre>
+</div>
+</div>
+<div id="b818114f-06dc-4520-b173-18968e5121ee" class="cell" data-execution_count="73">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb64"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a>Pair.get_x</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="73">
+<pre><code>&lt;function __main__.Pair.get_x(self)&gt;</code></pre>
+</div>
+</div>
+<div id="755f2038-8bf0-4740-8d1e-f3c044b9e5a9" class="cell" data-execution_count="74">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb66"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a>Pair.get_x()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-error">
+<div class="ansi-escaped-output">
+<pre><span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
+<span class="ansi-cyan-fg">Cell</span><span class="ansi-cyan-fg"> </span><span class="ansi-green-fg">In[74]</span><span class="ansi-green-fg">, line 1</span>
+<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">1</span> <span class="ansi-yellow-bg">Pair</span><span class="ansi-yellow-bg">.</span><span class="ansi-yellow-bg">get_x</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">)</span>
+
+<span class="ansi-red-fg">TypeError</span>: Pair.get_x() missing 1 required positional argument: 'self'</pre>
+</div>
+</div>
+</div>
+<div id="9f9bd333-bef4-463b-9eac-50217a835c05" class="cell" data-execution_count="75">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb67"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a>p <span class="op">=</span> Pair(<span class="dv">0</span>, <span class="dv">0</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="db0282d5-68aa-43da-b023-2444c6dcefc9" class="cell" data-execution_count="76">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb68"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a>p.get_x()  <span class="co"># actually calls the function Pair.get_x(p)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="76">
+<pre><code>0</code></pre>
+</div>
+</div>
+<div id="0f5916b8-863a-4785-a6b6-16c44c5b8302" class="cell" data-execution_count="77">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb70"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a>Pair.get_x(p)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="77">
+<pre><code>0</code></pre>
+</div>
+</div>
+<div id="f0529a77-d82c-42dc-a27d-b0ee1f0438b1" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb72"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a>Pair(<span class="dv">3</span>, <span class="dv">4</span>) <span class="co"># it will create empty instance..and that will be passed as self</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="downloading-from-internet" class="level3">
+<h3 class="anchored" data-anchor-id="downloading-from-internet">Downloading from internet</h3>
+<p>pip install requests</p>
+<div id="aee773e3-3d57-41ea-9f84-ff305c064b5e" class="cell" data-execution_count="80">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb73"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb73-1"><a href="#cb73-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> requests</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="understanding-http-protocol" class="level3">
+<h3 class="anchored" data-anchor-id="understanding-http-protocol">Understanding HTTP protocol</h3>
+<p>https://vikrant.dev/python-foundation-professionals/module3-day1.html</p>
+<p>https:// protocal name vikrant.dev is name of the machine on which webserver is running there is folder on server python-foundation-professionals inside that folder there is file module3-day1.html</p>
+<ul>
+<li>get - get the resourse pointed by url</li>
+<li>post - in addition to hidden parameters and url</li>
+<li>put - put a resource at the url location</li>
+<li>delete - delete a resource from given url location</li>
+</ul>
+<div id="868acbdc-a8d1-4014-b730-2ee93ff2c140" class="cell" data-execution_count="81">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb74"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a>url <span class="op">=</span> <span class="st">"https://vikrant.dev/python-foundation-professionals/module3-day1.html"</span></span>
+<span id="cb74-2"><a href="#cb74-2" aria-hidden="true" tabindex="-1"></a>r <span class="op">=</span> requests.get(url)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="9cb897c2-3850-41ab-aab9-335ec8c2219a" class="cell" data-execution_count="82">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb75"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb75-1"><a href="#cb75-1" aria-hidden="true" tabindex="-1"></a>r.status_code <span class="co"># status 200 means it worked!</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="82">
+<pre><code>200</code></pre>
+</div>
+</div>
+<div id="85e3baab-ac4e-40f7-b28e-6dddcaabb068" class="cell" data-execution_count="83">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb77"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb77-1"><a href="#cb77-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(r.text[:<span class="dv">1000</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"&gt;&lt;head&gt;
+
+&lt;meta charset="utf-8"&gt;
+&lt;meta name="generator" content="quarto-1.8.26"&gt;
+
+&lt;meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes"&gt;
+
+
+&lt;title&gt;Module III - Day I â Python Foundation&lt;/title&gt;
+&lt;style&gt;
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre &gt; code.sourceCode { white-space: pre; position: relative; }
+pre &gt; code.sourceCode &gt; span { display: inline-block; line-height: 1.25; }
+pre &gt; code.sour</code></pre>
+</div>
+</div>
+<div id="cbb853c7-e35d-4de0-b9a9-585e40dca4bb" class="cell" data-execution_count="85">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb79"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb79-1"><a href="#cb79-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> download_textfile(url, filename):</span>
+<span id="cb79-2"><a href="#cb79-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Downloading ..</span><span class="sc">{</span>url<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb79-3"><a href="#cb79-3" aria-hidden="true" tabindex="-1"></a>    r <span class="op">=</span> requests.get(url)</span>
+<span id="cb79-4"><a href="#cb79-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> r.status_code <span class="op">==</span> <span class="dv">200</span>:</span>
+<span id="cb79-5"><a href="#cb79-5" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f"Saving it to </span><span class="sc">{</span>filename<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb79-6"><a href="#cb79-6" aria-hidden="true" tabindex="-1"></a>        <span class="cf">with</span> <span class="bu">open</span>(filename, <span class="st">"w"</span>) <span class="im">as</span> f:</span>
+<span id="cb79-7"><a href="#cb79-7" aria-hidden="true" tabindex="-1"></a>            f.write(r.text)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="2b1528e6-97d0-45e8-bbc1-f136a9d667cb" class="cell" data-execution_count="86">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb80"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb80-1"><a href="#cb80-1" aria-hidden="true" tabindex="-1"></a>download_textfile(url, <span class="st">"sample.html"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Downloading ..https://vikrant.dev/python-foundation-professionals/module3-day1.html
+Saving it to sample.html</code></pre>
+</div>
+</div>
+<div id="afbbe925-2266-4512-bed9-203ebd8adfa7" class="cell" data-execution_count="87">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb82"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb82-1"><a href="#cb82-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> download(url, filename):</span>
+<span id="cb82-2"><a href="#cb82-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Downloading </span><span class="sc">{</span>url<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb82-3"><a href="#cb82-3" aria-hidden="true" tabindex="-1"></a>    r <span class="op">=</span> requests.get(url)</span>
+<span id="cb82-4"><a href="#cb82-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> r.status_code <span class="op">==</span> <span class="dv">200</span>:</span>
+<span id="cb82-5"><a href="#cb82-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">with</span> <span class="bu">open</span>(filename, <span class="st">"wb"</span>) <span class="im">as</span> f:</span>
+<span id="cb82-6"><a href="#cb82-6" aria-hidden="true" tabindex="-1"></a>            <span class="bu">print</span>(<span class="ss">f"Saving it to </span><span class="sc">{</span>filename<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb82-7"><a href="#cb82-7" aria-hidden="true" tabindex="-1"></a>            f.write(r.content) <span class="co"># content is binary data</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="e9a7dc27-65ef-45a9-a924-484d670561ef" class="cell" data-execution_count="88">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb83"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb83-1"><a href="#cb83-1" aria-hidden="true" tabindex="-1"></a>download(url, <span class="st">"sample1.html"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Downloading https://vikrant.dev/python-foundation-professionals/module3-day1.html
+Saving it to sample1.html</code></pre>
+</div>
+</div>
+<div id="39df9b40-4324-4301-b710-d2d367b932f1" class="cell" data-execution_count="94">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb85"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb85-1"><a href="#cb85-1" aria-hidden="true" tabindex="-1"></a>excelurl <span class="op">=</span> <span class="st">"https://raw.githubusercontent.com/vikipedia/python-trainings/master/online_course/source/module2/wallet.xlsx"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="43917927-fcaf-43cb-9395-30dafa3ff7d6" class="cell" data-execution_count="95">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb86"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb86-1"><a href="#cb86-1" aria-hidden="true" tabindex="-1"></a>download(excelurl, <span class="st">"wallet.xlsx"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Downloading https://raw.githubusercontent.com/vikipedia/python-trainings/master/online_course/source/module2/wallet.xlsx
+Saving it to wallet.xlsx</code></pre>
+</div>
+</div>
+</section>
+<section id="api-call" class="level3">
+<h3 class="anchored" data-anchor-id="api-call">API call</h3>
+<div id="f836efc5-e8ed-47d5-86b2-b950a84ee8ca" class="cell" data-execution_count="96">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb88"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb88-1"><a href="#cb88-1" aria-hidden="true" tabindex="-1"></a>url <span class="op">=</span> <span class="st">"https://www.alphavantage.co/query"</span></span>
+<span id="cb88-2"><a href="#cb88-2" aria-hidden="true" tabindex="-1"></a>API_KEY <span class="op">=</span> <span class="st">"demo"</span>  <span class="co"># "UKVFE0JLE0TBPDEF"</span></span>
+<span id="cb88-3"><a href="#cb88-3" aria-hidden="true" tabindex="-1"></a>p <span class="op">=</span> {<span class="st">"function"</span>: <span class="st">"TIME_SERIES_INTRADAY"</span>,</span>
+<span id="cb88-4"><a href="#cb88-4" aria-hidden="true" tabindex="-1"></a>     <span class="st">"symbol"</span>: <span class="st">"IBM"</span>,</span>
+<span id="cb88-5"><a href="#cb88-5" aria-hidden="true" tabindex="-1"></a>     <span class="st">"interval"</span>: <span class="st">"5min"</span>,</span>
+<span id="cb88-6"><a href="#cb88-6" aria-hidden="true" tabindex="-1"></a>     <span class="st">"apikey"</span>: API_KEY}</span>
+<span id="cb88-7"><a href="#cb88-7" aria-hidden="true" tabindex="-1"></a>r <span class="op">=</span> requests.get(url, params<span class="op">=</span>p)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="f6ce8504-c6de-4939-aec4-7255688ff812" class="cell" data-execution_count="97">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb89"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb89-1"><a href="#cb89-1" aria-hidden="true" tabindex="-1"></a>r.status_code</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="97">
+<pre><code>200</code></pre>
+</div>
+</div>
+<div id="1e016ee2-1945-4ee2-88a3-82d051ee6587" class="cell" data-execution_count="98">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb91"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb91-1"><a href="#cb91-1" aria-hidden="true" tabindex="-1"></a>r.json()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="98">
+<pre><code>{'Meta Data': {'1. Information': 'Intraday (5min) open, high, low, close prices and volume',
+  '2. Symbol': 'IBM',
+  '3. Last Refreshed': '2026-02-09 19:55:00',
+  '4. Interval': '5min',
+  '5. Output Size': 'Compact',
+  '6. Time Zone': 'US/Eastern'},
+ 'Time Series (5min)': {'2026-02-09 19:55:00': {'1. open': '296.6000',
+   '2. high': '296.6000',
+   '3. low': '296.3604',
+   '4. close': '296.3604',
+   '5. volume': '54'},
+  '2026-02-09 19:50:00': {'1. open': '296.6000',
+   '2. high': '296.6000',
+   '3. low': '296.5900',
+   '4. close': '296.5900',
+   '5. volume': '21'},
+  '2026-02-09 19:45:00': {'1. open': '296.5300',
+   '2. high': '296.6900',
+   '3. low': '296.3400',
+   '4. close': '296.3400',
+   '5. volume': '424'},
+  '2026-02-09 19:40:00': {'1. open': '296.3400',
+   '2. high': '296.5300',
+   '3. low': '296.3400',
+   '4. close': '296.5300',
+   '5. volume': '46'},
+  '2026-02-09 19:30:00': {'1. open': '296.1800',
+   '2. high': '296.2590',
+   '3. low': '296.1800',
+   '4. close': '296.2590',
+   '5. volume': '10'},
+  '2026-02-09 19:25:00': {'1. open': '296.3400',
+   '2. high': '296.3400',
+   '3. low': '296.3399',
+   '4. close': '296.3400',
+   '5. volume': '297'},
+  '2026-02-09 19:20:00': {'1. open': '296.3300',
+   '2. high': '296.3400',
+   '3. low': '296.3300',
+   '4. close': '296.3400',
+   '5. volume': '4'},
+  '2026-02-09 19:15:00': {'1. open': '296.2800',
+   '2. high': '296.3000',
+   '3. low': '296.2200',
+   '4. close': '296.2200',
+   '5. volume': '21'},
+  '2026-02-09 19:10:00': {'1. open': '296.3400',
+   '2. high': '296.3400',
+   '3. low': '296.3200',
+   '4. close': '296.3200',
+   '5. volume': '124'},
+  '2026-02-09 19:05:00': {'1. open': '296.3500',
+   '2. high': '296.3500',
+   '3. low': '296.3500',
+   '4. close': '296.3500',
+   '5. volume': '14'},
+  '2026-02-09 19:00:00': {'1. open': '296.3400',
+   '2. high': '296.5900',
+   '3. low': '296.3400',
+   '4. close': '296.3544',
+   '5. volume': '702177'},
+  '2026-02-09 18:55:00': {'1. open': '296.3500',
+   '2. high': '296.5500',
+   '3. low': '296.3500',
+   '4. close': '296.4100',
+   '5. volume': '11'},
+  '2026-02-09 18:50:00': {'1. open': '296.3700',
+   '2. high': '296.6311',
+   '3. low': '296.3400',
+   '4. close': '296.3400',
+   '5. volume': '259'},
+  '2026-02-09 18:45:00': {'1. open': '296.6400',
+   '2. high': '296.6900',
+   '3. low': '296.3800',
+   '4. close': '296.3800',
+   '5. volume': '27'},
+  '2026-02-09 18:40:00': {'1. open': '296.6389',
+   '2. high': '296.6400',
+   '3. low': '296.6389',
+   '4. close': '296.6400',
+   '5. volume': '26'},
+  '2026-02-09 18:35:00': {'1. open': '296.6900',
+   '2. high': '296.6900',
+   '3. low': '296.6900',
+   '4. close': '296.6900',
+   '5. volume': '20'},
+  '2026-02-09 18:30:00': {'1. open': '296.3400',
+   '2. high': '296.6365',
+   '3. low': '296.3400',
+   '4. close': '296.3824',
+   '5. volume': '702072'},
+  '2026-02-09 18:25:00': {'1. open': '296.3800',
+   '2. high': '296.3942',
+   '3. low': '296.3400',
+   '4. close': '296.3942',
+   '5. volume': '8'},
+  '2026-02-09 18:20:00': {'1. open': '296.2500',
+   '2. high': '296.6800',
+   '3. low': '296.2500',
+   '4. close': '296.6800',
+   '5. volume': '243'},
+  '2026-02-09 18:15:00': {'1. open': '296.3400',
+   '2. high': '296.5000',
+   '3. low': '296.2500',
+   '4. close': '296.2500',
+   '5. volume': '20'},
+  '2026-02-09 18:10:00': {'1. open': '296.6000',
+   '2. high': '296.6400',
+   '3. low': '296.4600',
+   '4. close': '296.4900',
+   '5. volume': '411'},
+  '2026-02-09 18:05:00': {'1. open': '296.6400',
+   '2. high': '296.6900',
+   '3. low': '296.6400',
+   '4. close': '296.6900',
+   '5. volume': '104'},
+  '2026-02-09 18:00:00': {'1. open': '296.5700',
+   '2. high': '296.5700',
+   '3. low': '296.5700',
+   '4. close': '296.5700',
+   '5. volume': '14'},
+  '2026-02-09 17:55:00': {'1. open': '296.6000',
+   '2. high': '296.6500',
+   '3. low': '296.5012',
+   '4. close': '296.6494',
+   '5. volume': '20'},
+  '2026-02-09 17:50:00': {'1. open': '296.5600',
+   '2. high': '296.6000',
+   '3. low': '296.5600',
+   '4. close': '296.6000',
+   '5. volume': '19'},
+  '2026-02-09 17:45:00': {'1. open': '296.5232',
+   '2. high': '296.5232',
+   '3. low': '296.5232',
+   '4. close': '296.5232',
+   '5. volume': '5'},
+  '2026-02-09 17:40:00': {'1. open': '296.6200',
+   '2. high': '296.6200',
+   '3. low': '296.5500',
+   '4. close': '296.5500',
+   '5. volume': '10'},
+  '2026-02-09 17:35:00': {'1. open': '296.6201',
+   '2. high': '296.6500',
+   '3. low': '296.6201',
+   '4. close': '296.6500',
+   '5. volume': '30'},
+  '2026-02-09 17:30:00': {'1. open': '296.5000',
+   '2. high': '296.6495',
+   '3. low': '296.5000',
+   '4. close': '296.6100',
+   '5. volume': '16'},
+  '2026-02-09 17:25:00': {'1. open': '296.6494',
+   '2. high': '296.6500',
+   '3. low': '296.5000',
+   '4. close': '296.6500',
+   '5. volume': '20'},
+  '2026-02-09 17:20:00': {'1. open': '296.6800',
+   '2. high': '296.6800',
+   '3. low': '296.5000',
+   '4. close': '296.5000',
+   '5. volume': '80'},
+  '2026-02-09 17:15:00': {'1. open': '296.5000',
+   '2. high': '296.6895',
+   '3. low': '296.5000',
+   '4. close': '296.6600',
+   '5. volume': '61'},
+  '2026-02-09 17:10:00': {'1. open': '296.5700',
+   '2. high': '296.6300',
+   '3. low': '296.3400',
+   '4. close': '296.3400',
+   '5. volume': '967'},
+  '2026-02-09 17:05:00': {'1. open': '296.6690',
+   '2. high': '296.7000',
+   '3. low': '296.5700',
+   '4. close': '296.5700',
+   '5. volume': '12'},
+  '2026-02-09 17:00:00': {'1. open': '296.4900',
+   '2. high': '296.5800',
+   '3. low': '296.4600',
+   '4. close': '296.5500',
+   '5. volume': '136'},
+  '2026-02-09 16:55:00': {'1. open': '296.4400',
+   '2. high': '296.4900',
+   '3. low': '296.3000',
+   '4. close': '296.4900',
+   '5. volume': '18156'},
+  '2026-02-09 16:50:00': {'1. open': '296.4300',
+   '2. high': '296.4300',
+   '3. low': '296.4300',
+   '4. close': '296.4300',
+   '5. volume': '1'},
+  '2026-02-09 16:45:00': {'1. open': '296.3790',
+   '2. high': '296.4800',
+   '3. low': '296.3100',
+   '4. close': '296.4800',
+   '5. volume': '68'},
+  '2026-02-09 16:40:00': {'1. open': '296.4700',
+   '2. high': '296.5000',
+   '3. low': '296.3400',
+   '4. close': '296.4000',
+   '5. volume': '8584'},
+  '2026-02-09 16:35:00': {'1. open': '296.5000',
+   '2. high': '296.5100',
+   '3. low': '296.4900',
+   '4. close': '296.4900',
+   '5. volume': '5'},
+  '2026-02-09 16:30:00': {'1. open': '296.3324',
+   '2. high': '296.5000',
+   '3. low': '296.3324',
+   '4. close': '296.5000',
+   '5. volume': '25'},
+  '2026-02-09 16:25:00': {'1. open': '296.2100',
+   '2. high': '296.3300',
+   '3. low': '296.2100',
+   '4. close': '296.2100',
+   '5. volume': '34'},
+  '2026-02-09 16:20:00': {'1. open': '296.3000',
+   '2. high': '297.0000',
+   '3. low': '296.3000',
+   '4. close': '296.3000',
+   '5. volume': '255'},
+  '2026-02-09 16:15:00': {'1. open': '296.3400',
+   '2. high': '298.9300',
+   '3. low': '296.2100',
+   '4. close': '296.3200',
+   '5. volume': '2141'},
+  '2026-02-09 16:10:00': {'1. open': '296.3400',
+   '2. high': '298.9300',
+   '3. low': '296.2100',
+   '4. close': '298.9300',
+   '5. volume': '702348'},
+  '2026-02-09 16:05:00': {'1. open': '296.3400',
+   '2. high': '296.5800',
+   '3. low': '295.9209',
+   '4. close': '296.5800',
+   '5. volume': '1134'},
+  '2026-02-09 16:00:00': {'1. open': '296.3600',
+   '2. high': '296.6000',
+   '3. low': '295.6400',
+   '4. close': '296.3400',
+   '5. volume': '1500937'},
+  '2026-02-09 15:55:00': {'1. open': '296.4100',
+   '2. high': '296.8900',
+   '3. low': '296.2500',
+   '4. close': '296.3200',
+   '5. volume': '257505'},
+  '2026-02-09 15:50:00': {'1. open': '296.9000',
+   '2. high': '297.0300',
+   '3. low': '296.2800',
+   '4. close': '296.4400',
+   '5. volume': '135844'},
+  '2026-02-09 15:45:00': {'1. open': '296.7850',
+   '2. high': '297.0600',
+   '3. low': '296.7500',
+   '4. close': '296.9100',
+   '5. volume': '61653'},
+  '2026-02-09 15:40:00': {'1. open': '296.7550',
+   '2. high': '296.9600',
+   '3. low': '296.6400',
+   '4. close': '296.7600',
+   '5. volume': '45662'},
+  '2026-02-09 15:35:00': {'1. open': '296.6593',
+   '2. high': '296.7900',
+   '3. low': '296.2950',
+   '4. close': '296.7550',
+   '5. volume': '46918'},
+  '2026-02-09 15:30:00': {'1. open': '297.0100',
+   '2. high': '297.0100',
+   '3. low': '296.5750',
+   '4. close': '296.5900',
+   '5. volume': '60736'},
+  '2026-02-09 15:25:00': {'1. open': '297.4200',
+   '2. high': '297.5500',
+   '3. low': '296.9400',
+   '4. close': '296.9750',
+   '5. volume': '36754'},
+  '2026-02-09 15:20:00': {'1. open': '297.1700',
+   '2. high': '297.4700',
+   '3. low': '297.0950',
+   '4. close': '297.4200',
+   '5. volume': '46148'},
+  '2026-02-09 15:15:00': {'1. open': '297.5600',
+   '2. high': '297.5600',
+   '3. low': '297.0725',
+   '4. close': '297.1700',
+   '5. volume': '32640'},
+  '2026-02-09 15:10:00': {'1. open': '297.4750',
+   '2. high': '297.7200',
+   '3. low': '297.4000',
+   '4. close': '297.5480',
+   '5. volume': '28309'},
+  '2026-02-09 15:05:00': {'1. open': '297.0100',
+   '2. high': '297.5900',
+   '3. low': '296.9750',
+   '4. close': '297.5000',
+   '5. volume': '237402'},
+  '2026-02-09 15:00:00': {'1. open': '297.1700',
+   '2. high': '297.2400',
+   '3. low': '296.8800',
+   '4. close': '296.9750',
+   '5. volume': '31310'},
+  '2026-02-09 14:55:00': {'1. open': '297.1000',
+   '2. high': '297.2300',
+   '3. low': '296.9900',
+   '4. close': '297.1350',
+   '5. volume': '29220'},
+  '2026-02-09 14:50:00': {'1. open': '296.8801',
+   '2. high': '297.1800',
+   '3. low': '296.8801',
+   '4. close': '297.1000',
+   '5. volume': '30047'},
+  '2026-02-09 14:45:00': {'1. open': '296.9915',
+   '2. high': '297.0000',
+   '3. low': '296.7500',
+   '4. close': '296.9400',
+   '5. volume': '31926'},
+  '2026-02-09 14:40:00': {'1. open': '297.3800',
+   '2. high': '297.5300',
+   '3. low': '296.8900',
+   '4. close': '296.9750',
+   '5. volume': '38999'},
+  '2026-02-09 14:35:00': {'1. open': '297.5400',
+   '2. high': '297.7000',
+   '3. low': '297.3200',
+   '4. close': '297.3800',
+   '5. volume': '38613'},
+  '2026-02-09 14:30:00': {'1. open': '297.3200',
+   '2. high': '297.6000',
+   '3. low': '297.2200',
+   '4. close': '297.6000',
+   '5. volume': '51778'},
+  '2026-02-09 14:25:00': {'1. open': '297.3100',
+   '2. high': '297.3750',
+   '3. low': '297.0900',
+   '4. close': '297.2700',
+   '5. volume': '38721'},
+  '2026-02-09 14:20:00': {'1. open': '296.5400',
+   '2. high': '297.3400',
+   '3. low': '296.5201',
+   '4. close': '297.3400',
+   '5. volume': '48695'},
+  '2026-02-09 14:15:00': {'1. open': '296.2200',
+   '2. high': '296.5700',
+   '3. low': '296.1222',
+   '4. close': '296.5700',
+   '5. volume': '48274'},
+  '2026-02-09 14:10:00': {'1. open': '295.9200',
+   '2. high': '296.3600',
+   '3. low': '295.9000',
+   '4. close': '296.2200',
+   '5. volume': '29424'},
+  '2026-02-09 14:05:00': {'1. open': '295.5450',
+   '2. high': '295.9899',
+   '3. low': '295.5000',
+   '4. close': '295.8700',
+   '5. volume': '33886'},
+  '2026-02-09 14:00:00': {'1. open': '295.1000',
+   '2. high': '295.5997',
+   '3. low': '295.0600',
+   '4. close': '295.5900',
+   '5. volume': '26693'},
+  '2026-02-09 13:55:00': {'1. open': '294.9600',
+   '2. high': '295.2000',
+   '3. low': '294.9600',
+   '4. close': '295.1150',
+   '5. volume': '30817'},
+  '2026-02-09 13:50:00': {'1. open': '294.7100',
+   '2. high': '294.9600',
+   '3. low': '294.6800',
+   '4. close': '294.9300',
+   '5. volume': '19793'},
+  '2026-02-09 13:45:00': {'1. open': '295.0300',
+   '2. high': '295.1100',
+   '3. low': '294.6800',
+   '4. close': '294.6800',
+   '5. volume': '30177'},
+  '2026-02-09 13:40:00': {'1. open': '294.5100',
+   '2. high': '295.0200',
+   '3. low': '294.2800',
+   '4. close': '295.0000',
+   '5. volume': '37941'},
+  '2026-02-09 13:35:00': {'1. open': '294.6100',
+   '2. high': '294.6899',
+   '3. low': '294.4200',
+   '4. close': '294.4750',
+   '5. volume': '16500'},
+  '2026-02-09 13:30:00': {'1. open': '294.1500',
+   '2. high': '294.5900',
+   '3. low': '294.0900',
+   '4. close': '294.5900',
+   '5. volume': '42024'},
+  '2026-02-09 13:25:00': {'1. open': '293.9300',
+   '2. high': '294.2900',
+   '3. low': '293.8600',
+   '4. close': '294.1600',
+   '5. volume': '29760'},
+  '2026-02-09 13:20:00': {'1. open': '293.7600',
+   '2. high': '294.0600',
+   '3. low': '293.3000',
+   '4. close': '293.9300',
+   '5. volume': '47663'},
+  '2026-02-09 13:15:00': {'1. open': '294.2800',
+   '2. high': '294.3300',
+   '3. low': '293.5100',
+   '4. close': '293.7075',
+   '5. volume': '116778'},
+  '2026-02-09 13:10:00': {'1. open': '294.3300',
+   '2. high': '294.4000',
+   '3. low': '294.0750',
+   '4. close': '294.2200',
+   '5. volume': '15912'},
+  '2026-02-09 13:05:00': {'1. open': '293.4800',
+   '2. high': '294.3800',
+   '3. low': '293.3000',
+   '4. close': '294.2600',
+   '5. volume': '35817'},
+  '2026-02-09 13:00:00': {'1. open': '293.5700',
+   '2. high': '293.6200',
+   '3. low': '293.2500',
+   '4. close': '293.4600',
+   '5. volume': '35708'},
+  '2026-02-09 12:55:00': {'1. open': '293.7150',
+   '2. high': '293.8199',
+   '3. low': '293.5200',
+   '4. close': '293.5400',
+   '5. volume': '26016'},
+  '2026-02-09 12:50:00': {'1. open': '294.0300',
+   '2. high': '294.0350',
+   '3. low': '293.6100',
+   '4. close': '293.7250',
+   '5. volume': '25613'},
+  '2026-02-09 12:45:00': {'1. open': '293.7100',
+   '2. high': '294.0300',
+   '3. low': '293.5900',
+   '4. close': '294.0300',
+   '5. volume': '37694'},
+  '2026-02-09 12:40:00': {'1. open': '293.5750',
+   '2. high': '293.7750',
+   '3. low': '293.4501',
+   '4. close': '293.7600',
+   '5. volume': '31428'},
+  '2026-02-09 12:35:00': {'1. open': '294.2500',
+   '2. high': '294.3800',
+   '3. low': '293.5100',
+   '4. close': '293.5750',
+   '5. volume': '62149'},
+  '2026-02-09 12:30:00': {'1. open': '294.3200',
+   '2. high': '294.3450',
+   '3. low': '293.9000',
+   '4. close': '294.2500',
+   '5. volume': '25524'},
+  '2026-02-09 12:25:00': {'1. open': '294.4400',
+   '2. high': '294.4899',
+   '3. low': '294.0850',
+   '4. close': '294.3250',
+   '5. volume': '34868'},
+  '2026-02-09 12:20:00': {'1. open': '294.4750',
+   '2. high': '294.6500',
+   '3. low': '294.2800',
+   '4. close': '294.4050',
+   '5. volume': '22785'},
+  '2026-02-09 12:15:00': {'1. open': '294.5750',
+   '2. high': '294.7800',
+   '3. low': '294.3550',
+   '4. close': '294.4750',
+   '5. volume': '30493'},
+  '2026-02-09 12:10:00': {'1. open': '294.5200',
+   '2. high': '294.7154',
+   '3. low': '294.4200',
+   '4. close': '294.5300',
+   '5. volume': '29345'},
+  '2026-02-09 12:05:00': {'1. open': '294.3880',
+   '2. high': '294.5900',
+   '3. low': '294.2700',
+   '4. close': '294.5300',
+   '5. volume': '27059'},
+  '2026-02-09 12:00:00': {'1. open': '294.3850',
+   '2. high': '294.7099',
+   '3. low': '294.3280',
+   '4. close': '294.3750',
+   '5. volume': '33297'},
+  '2026-02-09 11:55:00': {'1. open': '293.8600',
+   '2. high': '294.6600',
+   '3. low': '293.7839',
+   '4. close': '294.3150',
+   '5. volume': '67469'},
+  '2026-02-09 11:50:00': {'1. open': '293.9800',
+   '2. high': '294.0000',
+   '3. low': '293.7701',
+   '4. close': '293.8600',
+   '5. volume': '33729'},
+  '2026-02-09 11:45:00': {'1. open': '293.4200',
+   '2. high': '294.0200',
+   '3. low': '293.4200',
+   '4. close': '293.9700',
+   '5. volume': '34428'},
+  '2026-02-09 11:40:00': {'1. open': '292.8700',
+   '2. high': '293.6500',
+   '3. low': '292.8700',
+   '4. close': '293.4800',
+   '5. volume': '49376'},
+  '2026-02-09 11:35:00': {'1. open': '293.3300',
+   '2. high': '293.4600',
+   '3. low': '292.8000',
+   '4. close': '292.8700',
+   '5. volume': '41140'}}}</code></pre>
+</div>
+</div>
+<div id="35ff8655-a4d5-4798-9b0c-4f3dd4cf1b54" class="cell" data-execution_count="99">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb93"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb93-1"><a href="#cb93-1" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> r.json()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="8f8d0fbf-eaad-4bb2-a91d-c5aa42ba9164" class="cell" data-execution_count="100">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb94"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb94-1"><a href="#cb94-1" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(data)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="100">
+<pre><code>dict</code></pre>
+</div>
+</div>
+<div id="8292ad6f-2506-4bc8-a82a-f49f5cee5f80" class="cell" data-execution_count="101">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb96"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb96-1"><a href="#cb96-1" aria-hidden="true" tabindex="-1"></a>data.keys()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="101">
+<pre><code>dict_keys(['Meta Data', 'Time Series (5min)'])</code></pre>
+</div>
+</div>
+<div id="308d03d8-9ca0-4be8-a7be-2cfe9ad254d8" class="cell" data-execution_count="103">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb98"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb98-1"><a href="#cb98-1" aria-hidden="true" tabindex="-1"></a>data[<span class="st">'Meta Data'</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="103">
+<pre><code>{'1. Information': 'Intraday (5min) open, high, low, close prices and volume',
+ '2. Symbol': 'IBM',
+ '3. Last Refreshed': '2026-02-09 19:55:00',
+ '4. Interval': '5min',
+ '5. Output Size': 'Compact',
+ '6. Time Zone': 'US/Eastern'}</code></pre>
+</div>
+</div>
+<div id="a178a5ea-de56-4bac-ba56-3434262b4105" class="cell" data-execution_count="104">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb100"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb100-1"><a href="#cb100-1" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(data[<span class="st">'Time Series (5min)'</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="104">
+<pre><code>dict</code></pre>
+</div>
+</div>
+<div id="161d0f48-7c87-499d-8d3f-2627c5e5587b" class="cell" data-execution_count="105">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb102"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb102-1"><a href="#cb102-1" aria-hidden="true" tabindex="-1"></a>data[<span class="st">'Time Series (5min)'</span>].keys()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="105">
+<pre><code>dict_keys(['2026-02-09 19:55:00', '2026-02-09 19:50:00', '2026-02-09 19:45:00', '2026-02-09 19:40:00', '2026-02-09 19:30:00', '2026-02-09 19:25:00', '2026-02-09 19:20:00', '2026-02-09 19:15:00', '2026-02-09 19:10:00', '2026-02-09 19:05:00', '2026-02-09 19:00:00', '2026-02-09 18:55:00', '2026-02-09 18:50:00', '2026-02-09 18:45:00', '2026-02-09 18:40:00', '2026-02-09 18:35:00', '2026-02-09 18:30:00', '2026-02-09 18:25:00', '2026-02-09 18:20:00', '2026-02-09 18:15:00', '2026-02-09 18:10:00', '2026-02-09 18:05:00', '2026-02-09 18:00:00', '2026-02-09 17:55:00', '2026-02-09 17:50:00', '2026-02-09 17:45:00', '2026-02-09 17:40:00', '2026-02-09 17:35:00', '2026-02-09 17:30:00', '2026-02-09 17:25:00', '2026-02-09 17:20:00', '2026-02-09 17:15:00', '2026-02-09 17:10:00', '2026-02-09 17:05:00', '2026-02-09 17:00:00', '2026-02-09 16:55:00', '2026-02-09 16:50:00', '2026-02-09 16:45:00', '2026-02-09 16:40:00', '2026-02-09 16:35:00', '2026-02-09 16:30:00', '2026-02-09 16:25:00', '2026-02-09 16:20:00', '2026-02-09 16:15:00', '2026-02-09 16:10:00', '2026-02-09 16:05:00', '2026-02-09 16:00:00', '2026-02-09 15:55:00', '2026-02-09 15:50:00', '2026-02-09 15:45:00', '2026-02-09 15:40:00', '2026-02-09 15:35:00', '2026-02-09 15:30:00', '2026-02-09 15:25:00', '2026-02-09 15:20:00', '2026-02-09 15:15:00', '2026-02-09 15:10:00', '2026-02-09 15:05:00', '2026-02-09 15:00:00', '2026-02-09 14:55:00', '2026-02-09 14:50:00', '2026-02-09 14:45:00', '2026-02-09 14:40:00', '2026-02-09 14:35:00', '2026-02-09 14:30:00', '2026-02-09 14:25:00', '2026-02-09 14:20:00', '2026-02-09 14:15:00', '2026-02-09 14:10:00', '2026-02-09 14:05:00', '2026-02-09 14:00:00', '2026-02-09 13:55:00', '2026-02-09 13:50:00', '2026-02-09 13:45:00', '2026-02-09 13:40:00', '2026-02-09 13:35:00', '2026-02-09 13:30:00', '2026-02-09 13:25:00', '2026-02-09 13:20:00', '2026-02-09 13:15:00', '2026-02-09 13:10:00', '2026-02-09 13:05:00', '2026-02-09 13:00:00', '2026-02-09 12:55:00', '2026-02-09 12:50:00', '2026-02-09 12:45:00', '2026-02-09 12:40:00', '2026-02-09 12:35:00', '2026-02-09 12:30:00', '2026-02-09 12:25:00', '2026-02-09 12:20:00', '2026-02-09 12:15:00', '2026-02-09 12:10:00', '2026-02-09 12:05:00', '2026-02-09 12:00:00', '2026-02-09 11:55:00', '2026-02-09 11:50:00', '2026-02-09 11:45:00', '2026-02-09 11:40:00', '2026-02-09 11:35:00'])</code></pre>
+</div>
+</div>
+<div id="9e59c328-d1c9-4415-bfd4-f5866001b5c1" class="cell" data-execution_count="107">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb104"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb104-1"><a href="#cb104-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-error">
+<div class="ansi-escaped-output">
+<pre><span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">ModuleNotFoundError</span>                       Traceback (most recent call last)
+<span class="ansi-cyan-fg">Cell</span><span class="ansi-cyan-fg"> </span><span class="ansi-green-fg">In[107]</span><span class="ansi-green-fg">, line 1</span>
+<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">1</span> <span style="font-weight:bold;color:rgb(0,135,0)">import</span><span style="color:rgb(188,188,188)"> </span><span class="ansi-blue-fg ansi-bold">pandas</span><span style="color:rgb(188,188,188)"> </span><span style="font-weight:bold;color:rgb(0,135,0)">as</span><span style="color:rgb(188,188,188)"> </span><span class="ansi-blue-fg ansi-bold">pd</span>
+
+<span class="ansi-red-fg">ModuleNotFoundError</span>: No module named 'pandas'</pre>
+</div>
+</div>
+</div>
+<div id="4474a1e1-d0ec-4797-bfa0-15990b28a5f8" class="cell" data-execution_count="108">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb105"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb105-1"><a href="#cb105-1" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>pip install pandas</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<div class="ansi-escaped-output">
+<pre>Collecting pandas
+
+  Downloading pandas-3.0.0-cp313-cp313-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl.metadata (79 kB)
+
+Collecting numpy&gt;=1.26.0 (from pandas)
+
+  Using cached numpy-2.4.2-cp313-cp313-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (6.6 kB)
+
+Requirement already satisfied: python-dateutil&gt;=2.8.2 in /home/vikrant/usr/local/default/lib/python3.13/site-packages (from pandas) (2.9.0.post0)
+
+Requirement already satisfied: six&gt;=1.5 in /home/vikrant/usr/local/default/lib/python3.13/site-packages (from python-dateutil&gt;=2.8.2-&gt;pandas) (1.17.0)
+
+Downloading pandas-3.0.0-cp313-cp313-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl (10.9 MB)
+
+   <span style="color:rgb(114,156,31)">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-green-fg">10.9/10.9 MB</span> <span class="ansi-red-fg">6.6 MB/s</span> eta <span class="ansi-cyan-fg">0:00:00</span>m eta <span class="ansi-cyan-fg">0:00:01</span>36m0:00:01m
+
+Using cached numpy-2.4.2-cp313-cp313-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (16.6 MB)
+
+Installing collected packages: numpy, pandas
+
+   <span style="color:rgb(114,156,31)">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-green-fg">2/2</span> [pandas]━━━━ <span class="ansi-green-fg">1/2</span> [pandas]
+
+Successfully installed numpy-2.4.2 pandas-3.0.0
+</pre>
+</div>
+</div>
+</div>
+<div id="137b05b8-4e21-4efd-b2e1-23cd39592d3c" class="cell" data-execution_count="109">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb106"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb106-1"><a href="#cb106-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="f18ae3c1-19ab-4c3d-aa94-dd8a8a4209cd" class="cell" data-execution_count="111">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb107"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb107-1"><a href="#cb107-1" aria-hidden="true" tabindex="-1"></a>pd.DataFrame(data[<span class="st">'Time Series (5min)'</span>]).T</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="111">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">1. open</th>
+<th data-quarto-table-cell-role="th">2. high</th>
+<th data-quarto-table-cell-role="th">3. low</th>
+<th data-quarto-table-cell-role="th">4. close</th>
+<th data-quarto-table-cell-role="th">5. volume</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">2026-02-09 19:55:00</th>
+<td>296.6000</td>
+<td>296.6000</td>
+<td>296.3604</td>
+<td>296.3604</td>
+<td>54</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">2026-02-09 19:50:00</th>
+<td>296.6000</td>
+<td>296.6000</td>
+<td>296.5900</td>
+<td>296.5900</td>
+<td>21</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">2026-02-09 19:45:00</th>
+<td>296.5300</td>
+<td>296.6900</td>
+<td>296.3400</td>
+<td>296.3400</td>
+<td>424</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">2026-02-09 19:40:00</th>
+<td>296.3400</td>
+<td>296.5300</td>
+<td>296.3400</td>
+<td>296.5300</td>
+<td>46</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">2026-02-09 19:30:00</th>
+<td>296.1800</td>
+<td>296.2590</td>
+<td>296.1800</td>
+<td>296.2590</td>
+<td>10</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">...</th>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">2026-02-09 11:55:00</th>
+<td>293.8600</td>
+<td>294.6600</td>
+<td>293.7839</td>
+<td>294.3150</td>
+<td>67469</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">2026-02-09 11:50:00</th>
+<td>293.9800</td>
+<td>294.0000</td>
+<td>293.7701</td>
+<td>293.8600</td>
+<td>33729</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">2026-02-09 11:45:00</th>
+<td>293.4200</td>
+<td>294.0200</td>
+<td>293.4200</td>
+<td>293.9700</td>
+<td>34428</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">2026-02-09 11:40:00</th>
+<td>292.8700</td>
+<td>293.6500</td>
+<td>292.8700</td>
+<td>293.4800</td>
+<td>49376</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">2026-02-09 11:35:00</th>
+<td>293.3300</td>
+<td>293.4600</td>
+<td>292.8000</td>
+<td>292.8700</td>
+<td>41140</td>
+</tr>
+</tbody>
+</table>
+
+<p>100 rows × 5 columns</p>
+</div>
+</div>
+</div>
+</section>
+<section id="authentication" class="level3">
+<h3 class="anchored" data-anchor-id="authentication">Authentication</h3>
+<div id="072eab82-f6f0-4f48-9f1a-3bdb46fd048f" class="cell" data-execution_count="112">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb108"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb108-1"><a href="#cb108-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span><span class="bu">file</span> passkey.txt</span>
+<span id="cb108-2"><a href="#cb108-2" aria-hidden="true" tabindex="-1"></a>tyt<span class="op">%^^%@</span><span class="co">#</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Writing passkey.txt</code></pre>
+</div>
+</div>
+<div id="86d828be-c6e0-42f9-a172-a7c0cb574499" class="cell" data-execution_count="113">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb110"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb110-1"><a href="#cb110-1" aria-hidden="true" tabindex="-1"></a>user <span class="op">=</span> <span class="st">"vikrant"</span></span>
+<span id="cb110-2"><a href="#cb110-2" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">"passkey.txt"</span>) <span class="im">as</span> f:</span>
+<span id="cb110-3"><a href="#cb110-3" aria-hidden="true" tabindex="-1"></a>    password <span class="op">=</span> f.read()</span>
+<span id="cb110-4"><a href="#cb110-4" aria-hidden="true" tabindex="-1"></a>url <span class="op">=</span> <span class="st">"https://httpbin.org/get"</span> </span>
+<span id="cb110-5"><a href="#cb110-5" aria-hidden="true" tabindex="-1"></a>r <span class="op">=</span> requests.get(url, auth<span class="op">=</span>(user, password))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="268beac1-21f6-48d4-b940-478220223f89" class="cell" data-execution_count="114">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb111"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb111-1"><a href="#cb111-1" aria-hidden="true" tabindex="-1"></a>r.status_code</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="114">
+<pre><code>200</code></pre>
+</div>
+</div>
+<div id="e3707030-87fb-456f-acbc-f65c48ed01a4" class="cell" data-execution_count="117">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb113"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb113-1"><a href="#cb113-1" aria-hidden="true" tabindex="-1"></a>r.json()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="117">
+<pre><code>{'args': {},
+ 'headers': {'Accept': '*/*',
+  'Accept-Encoding': 'gzip, deflate',
+  'Authorization': 'Basic dmlrcmFudDp0eXQlXl4lQCMK',
+  'Host': 'httpbin.org',
+  'User-Agent': 'python-requests/2.32.5',
+  'X-Amzn-Trace-Id': 'Root=1-698a9ed5-77f74bef566e41387a822408'},
+ 'origin': '103.215.167.18',
+ 'url': 'https://httpbin.org/get'}</code></pre>
+</div>
+</div>
+</section>
+<section id="homework" class="level3">
+<h3 class="anchored" data-anchor-id="homework">homework</h3>
+<p>Write a function <code>download_notes</code> which will download all notes from our training website - It should create a folder first - then download notebook html for each day for each module in that folder - can you also create a index page through python function so that you can access the notes by opening index.html?</p>
+<p>Observe the pattern of urls for example there is module number and day for each notebook.</p>
+<ul>
+<li>https://vikrant.dev/python-foundation-professionals/module1-day1.html</li>
+<li>https://vikrant.dev/python-foundation-professionals/module1-day2.html</li>
+<li>https://vikrant.dev/python-foundation-professionals/module2-day1.html</li>
+<li></li>
+</ul>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/pythonfoundationprofessional25\.training\.vikrant\.dev");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
