@@ -1,0 +1,10 @@
+---
+title: "Python Foundation"
+---
+
+_Uplift your professional skills with Python_
+
+
+Traditionally programming was for computer scientists. Today's professional environment is much demanding with use of computers. So programming need not be special skill of only programmers. If you are working professional and use computer every day and do you dream of automating some of your work? This course will teach you python programming with hands on training. After this you will be able automate day to day professional tasks, handle tabular data effectively with automation scripts. See [topics](https://vikrant.dev/python-foundation-professionals/topics.html) for more details.
+
+

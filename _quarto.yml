@@ -1,0 +1,45 @@
+project:
+  type: website
+
+website:
+  site-url: https://pythonfoundationprofessional25.training.vikrant.dev
+  title: "Python Foundation"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - trainer.qmd
+      - topics.qmd
+      - notes.qmd
+
+  sidebar:
+    style: docked
+    contents:
+      - section: Module I
+        contents:
+          - module1-day1.ipynb
+          - module1-day2.ipynb
+          - module1-day3.ipynb
+          - module1-day4.ipynb
+      - section: Module II
+        contents:
+          - module2-day1.ipynb
+          - module2-day2.ipynb
+          - module2-day3.ipynb  
+          - module2-day4.ipynb
+      - section: Module III
+        contents:
+          - module3-day1.ipynb
+          - module3-day2.ipynb
+          - module3-day3.ipynb
+
+format:
+  html:
+    theme:
+      - flatly
+      - brand
+    css: styles.css
+    toc: true
+
+
+

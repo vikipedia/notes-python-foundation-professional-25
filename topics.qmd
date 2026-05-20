@@ -1,0 +1,59 @@
+---
+title: Topics
+---
+
+Following topics will be covered in this training. The order and depth of topic may differ slightly depending on progress of participants.
+
+### Module I
+
+#### Getting Started With Interpreter
+- Installation
+- Interpreters / Jupyter
+
+#### Calculating With Python
+- Numbers 
+- Text
+- Collections
+- Built ins
+
+#### Programming Constructs
+- Loops
+- Conditions
+- Functions
+
+#### Puting it together
+- Modules
+- Scripts
+
+
+### Module II
+
+#### Working With Files
+- Read/write text files
+- shutils
+
+#### Matter of Style
+- List/Dictionary comprehensions
+- Common iteration patterns
+- Make a deck and shuffle it!
+
+#### Data
+- Tabular data
+- Data Cleaning
+- excel data
+
+#### Problems from field
+- Problems of participants' choice
+
+### Module III
+
+#### Object Oriented Programming
+- Classes
+- More 
+
+#### Third Party Tools
+- requests
+- typer
+
+#### Your choice
+- topics as per requirements
